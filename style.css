@@ -23,7 +23,7 @@ html {
 .container-grid {
     width: 80vw;
     max-width: 1400px;
-
+    
     margin: 0 auto;
 }
 
@@ -32,8 +32,8 @@ header div.container-grid {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-
+    
+    
 }
 
 .banner {
@@ -42,8 +42,8 @@ header div.container-grid {
     background-image: linear-gradient(90deg, rgba(53, 24, 104, 1)0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png.png);
     background-repeat: no-repeat;
     background-position: 165% 40%;
-
-
+    
+    
 }
 
 header {
@@ -66,7 +66,7 @@ header img {
     text-decoration-thickness: 2px;
     font-size: 20px;
     font-family: 'Anta';
-
+    
     transition: text-decoration 500ms ease;
 }
 
@@ -75,17 +75,45 @@ header img {
 }
 
 .conteudo-banner {
-
+    
     height: calc(100vh - 280px);
     display: flex;
     align-items: center;
-
+    
 }
 
 .conteudo-banner p {
     color: #fff;
     font-family: 'Anta';
     font-size: 32px;
+}
+.conteudo-banner span{
+    display: block;
+
+    overflow: hidden;
+    
+    border-right: 6px solid var(--laranja-gamifica);
+    white-space: nowrap;
+
+    animation: 
+        digitando 2s steps(40, end) ,
+        cursor 0.75s step-end infinite
+    ;
+}
+@keyframes digitando {
+    from{
+        width: 0
+    }   
+    to{
+        width: 100%
+    }
+}
+@keyframes cursor {
+    from,
+    to{
+        border-color: transparent
+    }    
+    50% {border-color: var(--laranja-gamifica)}
 }
 
 #sobre {
@@ -181,33 +209,35 @@ h2 {
 
     transition: background-color 500ms;
 }
-.container-cards{
+
+.container-cards {
     width: 100%;
 
     display: flex;
     justify-content: space-between;
 }
+
 .card button:hover {
     background-color: #ad4929;
 }
 
-#portfolio{
+#portfolio {
 
     height: 250px;
-    
+
     margin-bottom: 120px;
 
     background-image: url(img/bonecos.png);
 
-background-size: 250px;
+    background-size: 250px;
 
-background-repeat: repeat;
-background-attachment: fixed;
+    background-repeat: repeat;
+    background-attachment: fixed;
 
-position: relative;
+    position: relative;
 }
 
-.filtro{
+.filtro {
     height: 100%;
     width: 100%;
 
@@ -216,6 +246,7 @@ position: relative;
     position: absolute;
     top: 0;
 }
+
 #portfolio a {
 
     font-family: "Anta";
@@ -225,7 +256,8 @@ position: relative;
 
     z-index: 1;
 }
-#portfolio .container-grid{
+
+#portfolio .container-grid {
     width: fit-content;
     height: 100%;
 
@@ -235,22 +267,23 @@ position: relative;
 
 }
 
-#portfolio a:hover{
+#portfolio a:hover {
     font-size: 24px;
 
 }
 
-#contato{
+#contato {
     text-align: center;
     padding-bottom: 100px;
     margin-bottom: 100px;
 }
 
-#contato h2{
-margin-bottom: 70px;
+#contato h2 {
+    margin-bottom: 70px;
 
 }
-#contato form{
+
+#contato form {
     width: 50%;
 
     margin: 0 auto;
@@ -266,24 +299,26 @@ margin-bottom: 70px;
     color: white;
     font-family: "Montserrat";
 }
-#contato form label{
+
+#contato form label {
     margin-bottom: 15px;
     font-size: 17px;
 
 }
 
-.campo{
-width: 60%;
+.campo {
+    width: 60%;
 
-margin-bottom: 50px;
+    margin-bottom: 50px;
 
-text-align: left;
+    text-align: left;
 
-display: flex;
-flex-direction: column;
-justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-.campo input{
+
+.campo input {
     height: 40px;
 
     color: white;
@@ -297,11 +332,14 @@ justify-content: space-between;
     font-size: "Montserrat";
     font-size: 17px;
 }
-.campo input:focus, .campo-textarea textarea:focus{
+
+.campo input:focus,
+.campo-textarea textarea:focus {
     outline: 2px solid var(--laranja-gamifica);
 
 }
-.campo-textarea{
+
+.campo-textarea {
 
     width: 60%;
     margin-bottom: 30px;
@@ -310,9 +348,10 @@ justify-content: space-between;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
-.campo-textarea textarea{
+
+.campo-textarea textarea {
     color: white;
     background-color: #351868;
 
@@ -327,7 +366,8 @@ justify-content: space-between;
     outline: none;
     resize: none;
 }
-#contato form button{
+
+#contato form button {
     height: 40px;
     width: 60%;
 
@@ -342,13 +382,56 @@ justify-content: space-between;
     border-radius: 4px;
 
     cursor: pointer;
-    
+
     text-transform: uppercase;
     transition: background-color 500ms ease;
 
 }
-#contato form button:hover{
+
+#contato form button:hover {
 
     background-color: #ad4929;
-    
+
+}
+
+#contato form input ::placeholder,
+#contato form textarea ::-moz-placeholder {
+    color: #b9b9b9;
+
+}
+
+footer {
+    background-color: var(--roxo-gamifica);
+    height: 290px;
+}
+
+footer .container-grid {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.redes-sociais{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+}
+.redes-sociais p{
+    color: white;
+    font-family: "Anta";
+font-size: 24px;
+}
+
+.icones-redes{
+    width: 240px;
+    display: flex;
+    justify-content: space-between;
+}
+.icones-redes a{
+    color: white;
+}
+.icones-redes a:hover{
+    color: var(--laranja-gamifica);
 }
