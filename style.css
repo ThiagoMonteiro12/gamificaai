@@ -4,50 +4,56 @@
 }
 
 :root {
-
     --roxo-gamifica: #47208b;
     --laranja-gamifica: #f06638;
 }
 
+/* Reset de CSS - Limpa configurações padrão que atrapalham */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
 html {
     scroll-behavior: smooth;
-
 }
 
 .container-grid {
     width: 80vw;
     max-width: 1400px;
 
+    /* margin: 30px - Espaçamento de 30 px em torno do elemento*/
+    /* margin: 0px 30px - Espaçamento 0px vertical e 30px horizontal*/
+    /* margin: 0px 30px 10px - Espaçamento 0px para cima, 30px horizontal e 10 para baixo*/
+    
+    /* margin: 0px 30px 10px 20px- 
+    Espaçamento 0px para cima, 30px para direita e 10 para baixo e 20 para esquerda*/
     margin: 0 auto;
 }
 
-header div.container-grid {
-    height: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-
-}
-
 .banner {
-    /* VH = Porcentagem da altura da viewport (Janela)*/
+    /* vh -> Porcentagem da ALTURA da viewport (janela) */
     height: 100vh;
-    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1)0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png.png);
+
+    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1) 0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png);
     background-repeat: no-repeat;
+
     background-position: 165% 40%;
-
-
 }
 
 header {
     height: 165px;
+
+}
+
+header div.container-grid {
+    /* Porcentagem - Unidade relativa ao elemento pai */
+    height: 100%;
+    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 header img {
@@ -60,16 +66,19 @@ header button {
 
 .menu {
     width: 700px;
+
     display: flex;
     justify-content: space-between;
 }
 
 .menu a {
     color: #fff;
+
+    font-family: 'Anta';
+    font-size: 20px;
+
     text-decoration: underline transparent;
     text-decoration-thickness: 2px;
-    font-size: 20px;
-    font-family: 'Anta';
 
     transition: text-decoration 500ms ease;
 }
@@ -79,17 +88,18 @@ header button {
 }
 
 .conteudo-banner {
-
+    /* Altura deve ser 100vh - altura do header */
+    /* Coloquei 280px pq fica mais legal */
     height: calc(100vh - 280px);
-    
+
     display: flex;
     align-items: center;
-
 }
 
 .conteudo-banner p {
-    color: #fff;
-    font-family: 'Anta';
+    color: white;
+
+    font-family: "Anta";
     font-size: 32px;
 }
 
@@ -101,9 +111,10 @@ header button {
     border-right: 6px solid var(--laranja-gamifica);
     white-space: nowrap;
 
-    animation:
+    animation: 
         digitando 2s steps(40, end),
-        cursor 0.75s step-end infinite;
+        cursor 0.75s step-end infinite
+    ;
 }
 
 @keyframes digitando {
@@ -117,34 +128,35 @@ header button {
 }
 
 @keyframes cursor {
-
     from,
     to {
-        border-color: transparent
+        border-color: transparent;
     }
 
     50% {
-        border-color: var(--laranja-gamifica)
+        border-color: var(--laranja-gamifica);
     }
 }
 
 #sobre {
     height: 800px;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     text-align: center;
     padding: 100px 25%;
 }
 
 h2 {
-    font-family: "Anta";
+    font-family: 'Anta';
     font-size: 28px;
 }
 
 #sobre p {
     font-family: 'Montserrat';
-    font: 17px;
+    font-size: 17px;
 
     text-align: left;
 }
@@ -160,7 +172,12 @@ h2 {
     margin-bottom: 70px;
 }
 
+.container-cards {
+    width: 100%;
 
+    display: flex;
+    justify-content: space-between;
+}
 
 .card {
     height: 400px;
@@ -222,28 +239,20 @@ h2 {
     transition: background-color 500ms;
 }
 
-.container-cards {
-    width: 100%;
-
-    display: flex;
-    justify-content: space-between;
-}
-
 .card button:hover {
     background-color: #ad4929;
 }
 
 #portfolio {
-
     height: 250px;
 
     margin-bottom: 120px;
 
     background-image: url(img/bonecos.png);
-
     background-size: 250px;
 
     background-repeat: repeat;
+
     background-attachment: fixed;
 
     position: relative;
@@ -253,14 +262,25 @@ h2 {
     height: 100%;
     width: 100%;
 
-    background-color: #47208bC2;
+    background-color: #47208bc2;
 
     position: absolute;
     top: 0;
 }
 
-#portfolio a {
+#portfolio .container-grid {
+    height: 100%;
 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+
+}
+
+#portfolio a {
+    width: fit-content;
+    
     font-family: "Anta";
     font-size: 28px;
 
@@ -269,30 +289,19 @@ h2 {
     z-index: 1;
 }
 
-#portfolio .container-grid {
-    width: fit-content;
-    height: 100%;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-}
-
 #portfolio a:hover {
-    font-size: 24px;
-
+    transform: scale(1.05);
 }
 
 #contato {
     text-align: center;
+
     padding-bottom: 100px;
     margin-bottom: 100px;
 }
 
 #contato h2 {
     margin-bottom: 70px;
-
 }
 
 #contato form {
@@ -306,6 +315,7 @@ h2 {
     align-items: center;
 
     border-radius: 80px;
+
     background-color: var(--roxo-gamifica);
 
     color: white;
@@ -315,7 +325,6 @@ h2 {
 #contato form label {
     margin-bottom: 15px;
     font-size: 17px;
-
 }
 
 .campo {
@@ -338,29 +347,25 @@ h2 {
 
     border: none;
     border-radius: 4px;
+
     outline: none;
+
     text-indent: 10px;
 
-    font-size: "Montserrat";
+    font-family: "Montserrat";
     font-size: 17px;
 }
 
-.campo input:focus,
-.campo-textarea textarea:focus {
-    outline: 2px solid var(--laranja-gamifica);
-
-}
-
 .campo-textarea {
-
     width: 60%;
+
     margin-bottom: 30px;
+
     text-align: left;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
 }
 
 .campo-textarea textarea {
@@ -376,8 +381,14 @@ h2 {
     font-size: 17px;
 
     outline: none;
+
     resize: none;
 }
+
+.campo input:focus, .campo-textarea textarea:focus {
+    outline: 2px solid var(--laranja-gamifica);
+}
+
 
 #contato form button {
     height: 40px;
@@ -396,29 +407,29 @@ h2 {
     cursor: pointer;
 
     text-transform: uppercase;
-    transition: background-color 500ms ease;
-
+    
+    transition: background-color 500ms ease ;
 }
 
 #contato form button:hover {
-
     background-color: #ad4929;
-
 }
 
-#contato form input ::placeholder,
-#contato form textarea ::-moz-placeholder {
+/* Placeholder */
+#contato form input::placeholder, 
+#contato form textarea::placeholder {
     color: #b9b9b9;
-
 }
 
 footer {
-    background-color: var(--roxo-gamifica);
     height: 290px;
+
+    background-color: var(--roxo-gamifica);
 }
 
 footer .container-grid {
     height: 100%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -426,20 +437,23 @@ footer .container-grid {
 
 .redes-sociais {
     height: 50%;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: end;
+    align-items: flex-end;
 }
 
 .redes-sociais p {
     color: white;
+
     font-family: "Anta";
     font-size: 24px;
 }
 
 .icones-redes {
     width: 240px;
+
     display: flex;
     justify-content: space-between;
 }
@@ -452,170 +466,231 @@ footer .container-grid {
     color: var(--laranja-gamifica);
 }
 
+.menu-fechado{
+    display: none;
+}
+#icone-barras{
+    display: none;
+}
+
 @media screen and (max-width: 1300px) {
+    header {
+        position: relative;
+    }
+    
     header button {
         width: 50px;
 
         display: unset;
 
         background: none;
-
         border: none;
-
 
     }
 
     header svg {
         fill: white;
-        position: relative;
     }
 
     nav.menu {
         height: 500px;
         width: 350px;
 
+        padding: 0px 30px;
+
         flex-direction: column;
         justify-content: space-around;
-        background-color: #000000e0;
+        /* align-items: flex-end; */
+
+        background-color: #000000f0;
+
         position: absolute;
         top: 165px;
         right: 0px;
-
     }
-    #sobre{
+
+    #sobre {
         padding: 100px 15%;
     }
-    .card{
+
+    .card {
         height: 320px;
         width: 200px;
     }
+
     #contato form {
         width: 75%;
-
     }
 }
+
 @media screen and (max-width: 1080px) {
-    .container-cards{
+    .container-cards {
+        flex-wrap: wrap;
     }
-    .card{
+
+    .card {
         height: 400px;
+
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: 40%;
     }
 
-    footer{
-    height: unset;
-    
-}
-    footer p{
+    footer {
+        height: unset;
+    }
+
+    footer .container-grid {
+        padding: 80px;
+
+        flex-direction: column;
+    }
+
+    footer img {
+        margin-bottom: 100px;
+    }
+
+    footer p {
         width: 100%;
         text-align: center;
         margin-bottom: 40px;
     }
-    .redes-sociais{
+    
+    .redes-sociais {
         align-items: center;
     }
 }
-@media screen and(max-width: 800px) 
-{
-    .card{flex-basis: 45%;
+
+@media screen and (max-width: 800px) {
+    .card {
+        flex-basis: 45%;
     }
 }
-@media screen and(max-width: 640px) {
-    #sobre{
 
+@media screen and (max-width: 700px) {
+    #sobre {
         height: unset;
         margin-bottom: 40px;
     }
-    #sobre h2{
+
+    #sobre h2 {
         margin-bottom: 50px;
     }
-    #sobre p{
+
+    #sobre p {
         margin-bottom: 30px;
     }
-    #cases{
+
+    #cases, #contato {
         margin-bottom: unset;
     }
-    #portfolio a{
+
+    #portfolio a {
         width: 100%;
         text-align: center;
     }
 
-    .campo, .campo-textarea, #contato form button{
+    .campo, .campo-textarea, #contato form button {
         width: 75%;
-    }
+    }    
 }
-@media screen and(max-width: 500px) {
-    .container-grid{
+
+@media screen and (max-width: 520px) {
+    .container-grid {
         width: 90%;
     }
-    header img{
+
+    header img {
         width: 200px;
     }
+
+    .banner {
+        background-size: cover;
+    }
+
     .conteudo-banner p {
         font-size: 24px;
     }
-    nav.menu{
+
+    nav.menu {
         width: 100%;
 
-        display: none;
     }
-    #sobre{
+
+    #sobre {
         padding-left: 0px;
         padding-right: 0px;
     }
-    #sobre p{
+
+    #sobre p {
         width: 90%;
         margin: 0 auto;
         margin-bottom: 20px;
     }
-    #cases{
+
+    #cases.container-grid {
         width: 100%;
-        margin: unset;}
-    .container-cards{
+        margin: unset;
+    }
+
+    .container-cards {
         flex-wrap: nowrap;
 
-        gap:40px;
+        gap: 40px;
 
         overflow-x: auto;
     }
-    .card{
+
+    .card {
         height: 400px;
-        width: 280px;
+        width: 280px;        
 
         flex-basis: unset;
     }
-    .card:first-child{
+
+    .card:first-child {
         margin-left: 30px;
     }
-    .card:last-child{
+
+    .card:last-child {
         margin-right: 30px;
     }
-    #contato form{
-        width: 100%;
-        border-radius: 0;
+
+    #portfolio {
+        margin-bottom: 0;
     }
-    #contato{
 
-            padding-top:150px;
-
+    #contato {
+        padding-top: 150px;
 
         background-color: var(--roxo-gamifica);
         color: white;
     }
+
+    #contato h2 {
+        margin-bottom: 0px;
+    }
+
+    #contato form {
+        width: 100%;
+        border-radius: 0;
+    }
 }
-@media screen and(max-width: 400px) {
-    header img{
+
+@media screen and (max-width: 400px) {
+    header img {
         width: 160px;
     }
-    header svg{
-        width: 40px
+
+    header svg {
+        width: 40px;
     }
-    .conteudo-banner p{
+
+    .conteudo-banner p {
         font-size: 20px;
     }
-    footer img{
+
+    footer img {
         width: 200px;
     }
 }
