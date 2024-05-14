@@ -8,11 +8,10 @@
     --laranja-gamifica: #f06638;
 }
 
-/* Reset de CSS - Limpa configurações padrão que atrapalham */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;    
+    box-sizing: border-box;
 }
 
 html {
@@ -23,23 +22,85 @@ html {
     width: 80vw;
     max-width: 1400px;
 
-    /* margin: 30px - Espaçamento de 30 px em torno do elemento*/
-    /* margin: 0px 30px - Espaçamento 0px vertical e 30px horizontal*/
-    /* margin: 0px 30px 10px - Espaçamento 0px para cima, 30px horizontal e 10 para baixo*/
-    
-    /* margin: 0px 30px 10px 20px- 
-    Espaçamento 0px para cima, 30px para direita e 10 para baixo e 20 para esquerda*/
+
     margin: 0 auto;
 }
 
+header div.container-grid {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+
+
+
+}
+
 .banner {
-    /* vh -> Porcentagem da ALTURA da viewport (janela) */
     height: 100vh;
-
-    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1) 0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png);
     background-repeat: no-repeat;
-
     background-position: 165% 40%;
+}
+
+.primeiro-banner {
+    background-image: linear-gradient(90deg, rgba(53, 24, 104, 1)0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png.png);
+}
+
+.segundo-banner {
+    background-image: linear-gradient(90deg, rgba(24, 104, 36, 1)0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png.png);
+}
+
+.terceiro-banner {
+    background-image: linear-gradient(90deg, rgba(104, 24, 48, 1)0%, rgba(53, 24, 104, 0.8) 100%), url(img/bg-room.png.png);
+}
+
+#botao-anterior,
+#botao-proximo {
+    width: 30px;
+
+    background: none;
+    border: none;
+    cursor: pointer;
+
+    position: absolute;
+}
+
+#botao-anterior {
+    left: 4%;
+}
+
+#botao-proximo {
+    right: 4%;
+}
+
+#botao-anterior svg,
+#botao-proximo svg {
+    fill: #ffffff76;
+}
+
+.botoes {
+    width: 150px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: absolute;
+    bottom: 4%;
+
+    left: 50%;
+    margin-left: -75px;    
+}
+
+.botoes button {
+    width: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+.botoes button svg{
+    fill: #ffffff76;
 }
 
 header {
@@ -48,9 +109,8 @@ header {
 }
 
 header div.container-grid {
-    /* Porcentagem - Unidade relativa ao elemento pai */
     height: 100%;
-    
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -88,8 +148,6 @@ header button {
 }
 
 .conteudo-banner {
-    /* Altura deve ser 100vh - altura do header */
-    /* Coloquei 280px pq fica mais legal */
     height: calc(100vh - 280px);
 
     display: flex;
@@ -111,10 +169,9 @@ header button {
     border-right: 6px solid var(--laranja-gamifica);
     white-space: nowrap;
 
-    animation: 
+    animation:
         digitando 2s steps(40, end),
-        cursor 0.75s step-end infinite
-    ;
+        cursor 0.75s step-end infinite;
 }
 
 @keyframes digitando {
@@ -128,6 +185,7 @@ header button {
 }
 
 @keyframes cursor {
+
     from,
     to {
         border-color: transparent;
@@ -201,8 +259,6 @@ h2 {
 .card img {
     height: 55%;
     width: 100%;
-
-    /* border-radius: 4px 4px 0 0; */
 
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
@@ -280,7 +336,7 @@ h2 {
 
 #portfolio a {
     width: fit-content;
-    
+
     font-family: "Anta";
     font-size: 28px;
 
@@ -385,7 +441,8 @@ h2 {
     resize: none;
 }
 
-.campo input:focus, .campo-textarea textarea:focus {
+.campo input:focus,
+.campo-textarea textarea:focus {
     outline: 2px solid var(--laranja-gamifica);
 }
 
@@ -407,16 +464,15 @@ h2 {
     cursor: pointer;
 
     text-transform: uppercase;
-    
-    transition: background-color 500ms ease ;
+
+    transition: background-color 500ms ease;
 }
 
 #contato form button:hover {
     background-color: #ad4929;
 }
 
-/* Placeholder */
-#contato form input::placeholder, 
+#contato form input::placeholder,
 #contato form textarea::placeholder {
     color: #b9b9b9;
 }
@@ -437,7 +493,7 @@ footer .container-grid {
 
 .redes-sociais {
     height: 50%;
-    
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -466,10 +522,11 @@ footer .container-grid {
     color: var(--laranja-gamifica);
 }
 
-.menu-fechado{
+.menu-fechado {
     display: none;
 }
-#icone-barras{
+
+#icone-barras {
     display: none;
 }
 
@@ -477,7 +534,7 @@ footer .container-grid {
     header {
         position: relative;
     }
-    
+
     header button {
         width: 50px;
 
@@ -500,13 +557,15 @@ footer .container-grid {
 
         flex-direction: column;
         justify-content: space-around;
-        /* align-items: flex-end; */
+
 
         background-color: #000000f0;
 
         position: absolute;
         top: 165px;
         right: 0px;
+
+        z-index: 1;
     }
 
     #sobre {
@@ -521,6 +580,7 @@ footer .container-grid {
     #contato form {
         width: 75%;
     }
+
 }
 
 @media screen and (max-width: 1080px) {
@@ -555,7 +615,7 @@ footer .container-grid {
         text-align: center;
         margin-bottom: 40px;
     }
-    
+
     .redes-sociais {
         align-items: center;
     }
@@ -581,7 +641,8 @@ footer .container-grid {
         margin-bottom: 30px;
     }
 
-    #cases, #contato {
+    #cases,
+    #contato {
         margin-bottom: unset;
     }
 
@@ -590,9 +651,11 @@ footer .container-grid {
         text-align: center;
     }
 
-    .campo, .campo-textarea, #contato form button {
+    .campo,
+    .campo-textarea,
+    #contato form button {
         width: 75%;
-    }    
+    }
 }
 
 @media screen and (max-width: 520px) {
@@ -643,7 +706,7 @@ footer .container-grid {
 
     .card {
         height: 400px;
-        width: 280px;        
+        width: 280px;
 
         flex-basis: unset;
     }
