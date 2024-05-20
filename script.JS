@@ -6,7 +6,7 @@ function abrirFecharMenu() {
     if (menu.classList.contains("menu-fechado")) {
         menu.classList.remove("menu-fechado")
 
-        iconeX.style.display = "unset"
+        iconeX.style.display = "inline"
 
         iconeBarras.style.display = "none"
     }
@@ -15,7 +15,7 @@ function abrirFecharMenu() {
 
         iconeX.style.display = "none"
 
-        iconeBarras.style.display = "unset"
+        iconeBarras.style.display = "inline"
     }
 
 }
@@ -95,7 +95,7 @@ let listaCases = [
 ]
 const renderizarCases = () => {
     let elementoLista = document.getElementById("lista-cards")
-    
+
     let template = ""
 
     listaCases.forEach(cardCase => {
@@ -106,4 +106,44 @@ const renderizarCases = () => {
     </div>`
     })
     elementoLista.innerHTML = template
+}
+const solicitarOrcamento = (event) => {
+    // Pegar valores dos inputs
+    let valorNome = document.getElementById("campo-nome").value
+    let valorEmail = document.getElementById("campo-email").value
+    let valorDescricao = document.getElementById("campo-descricao").value
+
+    // Organizar objeto com os valores
+    let dadosForm = {
+        nome: valorNome,
+        email: valorEmail,
+        descricao: valorDescricao
+    }
+
+    // Enviar requisicao para a api
+    // 127.0.0.1 = localhost
+    // Método HTTP POST - Create -> Cadastrar ou criar 
+    fetch("http://127.0.0.1:3000/solicitacoes", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(dadosForm)
+    })
+        .then(resposta => {
+            console.log(resposta)
+
+            document.querySelector("#contato-form").reset()
+
+            alert("Solicitação cadastrada")
+
+        })
+
+        .catch(erro => {
+            console.error(erro)
+
+            alert("Erro na requisição")
+        })
+
+        event.preventDefault()
 }
